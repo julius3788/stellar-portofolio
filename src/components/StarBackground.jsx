@@ -11,6 +11,15 @@ export const StarBackground = () => {
   useEffect(()=>{
     generateStars();
     generateMeteors();
+
+    const handleResize = () => {
+      generateStars();
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener("resize", handleResize);
+
   }, [])
 
   // add stars
@@ -84,3 +93,5 @@ export const StarBackground = () => {
     </div>
   )
 };
+
+// 01:01:15
